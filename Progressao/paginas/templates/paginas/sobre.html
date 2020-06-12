@@ -1,7 +1,35 @@
 {% extends 'paginas/modelo.html' %}
 
-{% block conteudo %}
-<div class="py-5 text-light">
-    <h3>Karen Cristina Violim</h3>
+{% load static %}
+
+{% block titulo %}
+<title>Sobre</title>
+{% endblock %}
+
+{% block menu %}
+<h1 class="my-4">Descrição e Objetivos do Software
+</h1>
+<div class="card mb-4">
+    <div class="card-body">
+        <h2 class="card-title">Sistema para Gerenciamento de Docerias</h2>
+        <p class="card-text">O segmento de doceria tem clientes garantidos durante todo o ano, mas tem grande aumento na demanda 
+            em períodos festivos como dia das mães, páscoa, dia das crianças, natal, entre outros. Contudo, a concorrência é grande, 
+            já que compete com docerias e ainda com padarias e supermercados. Dessa forma, esse tipo de negócio precisa de um software 
+            para facilitar sua gestão e propiciar uma melhor experiência no controle da sua empresa.<br>
+            Atualmente a empresa atende vários clientes de formas simultâneas, sendo assim é necessário a utilização de um sistema de 
+            informação capaz de agilizar as encomendas e fornecer informações precisas. As encomendas são realizadas via WhatsApp, 
+            Messenger e Instagram o que acaba gerando certo descontrole, também ocorre o esquecimento de encomendas, pois tudo fica 
+            anotado manualmente em cadernos. <br>
+            A proposta de desenvolvimento é de um sistema web que seja capaz de gerenciar toda a parte
+            de movimentações de uma doceria, atribuindo as respectivas permissões de acordo com os funcionários, controlar
+            os pedidos, cadastros e visualizar relatórios gerenciais para fins de verificar informações.<br>
+            Com o sistema implementado as encomendas ocorrerão apenas pelo site, tendo o banco de dados sempre controlado para que não 
+            ocorra nenhum caso de atraso, falta de produtos ou esquecimentos.
+        </p>
+    </div>
+    <div class="card-footer text-muted">
+        Postado em 11 de Junho de 2020 por
+        <a href="#">Karen Violim</a>
+    </div>
 </div>
 {% endblock %}
