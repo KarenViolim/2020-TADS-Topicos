@@ -22,7 +22,7 @@
     {% block cabecalho %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Karen Candy's</a>
+            <a class="navbar-brand" href="#">Infomania Serviços</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,10 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
+                        <a class="nav-link" href="{% url 'sobre' %}">Diagrama de Classes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sobre2' %}">Diagrama de Caso de Uso</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contato</a>
@@ -57,17 +60,19 @@
             <div class="col-md-8">
                 {% block menu %}
 
-                <h1 class="my-4">Tudo sobre doces
+                <h1 class="my-4">Tudo sobre informática
                 </h1>
 
                 <!-- Blog Post -->
                 <div class="card mb-4">
-                    <img class="card-img-top" src="{% static 'img/cartao frente.jpeg'%}" alt="Card image cap">
+                    <img class="card-img-top" src="{% static 'img/vendas.jpeg'%}" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title">Faça sua encomenda!</h2>
-                        <p class="card-text">Dia dos namorados chegando e você não presenteou seu parceiro ainda?
-                            Entre em contato, doces de qualidade e com um preço super especial, aceitamos encomendas
-                            de poucas quantidades, aproveite, melhor não há!</p>
+                        <h2 class="card-title">Sobre Nós</h2>
+                        <p class="card-text">A INFOMANIA é uma empresa com 10 anos de experiência no mercado, aqui você conta 
+                            com uma equipe especializada garantindo sempre o melhor atendimento aos clientes. <br>
+                            Trabalhamos com assistência técnica, venda de equipamentos e desenvolvimento de Sistema Gerencial 
+                            para sua empresa! Buscamos a cada dia nos tornar verdadeiros parceiros de negócios, realizando 
+                            nosso trabalho sempre com agilidade, qualidade e eficiência!</p>
                         <a href="#" class="btn btn-primary">Ler mais &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
@@ -78,12 +83,14 @@
 
                 <!-- Blog Post -->
                 <div class="card mb-4">
-                    <img class="card-img-top" src="{% static 'img/cento.jpeg'%}" alt="Card image cap">
+                    <img class="card-img-top" src="{% static 'img/assistencia.jpeg'%}" alt="Card image cap">
                     <div class="card-body">
-                        <h2 class="card-title">O que saber antes de encomendar?</h2>
-                        <p class="card-text">Diante de tudo que vemos enfrentando, nossa produção está seguindo
-                            todas as medidas de proteção, contando com uma extrema higiênização e também estamos
-                            com equipe reduzida, para fazer sua encomenda, favor pedir com 3 dias de antecedência!</p>
+                        <h2 class="card-title">Assistência Técnica</h2>
+                        <p class="card-text">Atualmente nosso atendimento e suporte técnico abrangem empresas e domicílios
+                            na cidade de Nova Londrina e toda a região! <br>                            
+                            Nossa atual estrutura conta com laboratório próprio para realização de manutenções em servidores, 
+                            computadores, notebooks, smartphones, impressoras, monitores e nobreaks. Contamos também com uma 
+                            equipe técnica altamente qualificada sempre trabalhando com agilidade, qualidade e eficiência!</p>
                         <a href="#" class="btn btn-primary">Ler mais &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
@@ -129,29 +136,32 @@
                             <div class="col-lg-6">
                                 <ul class="list-unstyled mb-0">
                                     <li>
-                                        <a href="#">Brigadeiro</a>
+                                        <a href="#">Vendas</a>
                                     </li>
                                     <li>
-                                        <a href="#">Beijinho</a>
+                                        <a href="#">Assistência Técnica</a>
                                     </li>
                                     <li>
-                                        <a href="#">Bicho de Pé</a>
+                                        <a href="#">Sistema ERP</a>
                                     </li>
                                     <li>
-                                        <a href="#">Brigadeiro de Amendoim</a>
+                                        <a href="#">Sistema Fiscal</a>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-lg-6">
                                 <ul class="list-unstyled mb-0">
                                     <li>
-                                        <a href="#">Casadinho</a>
+                                        <a href="#">Impressoras</a>
                                     </li>
                                     <li>
-                                        <a href="#">Leite Ninho</a>
+                                        <a href="#">Smartphones</a>
                                     </li>
                                     <li>
-                                        <a href="#">Brigadeiro de Churros</a>
+                                        <a href="#">Computadores</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Consertos em geral</a>
                                     </li>
                                 </ul>
                             </div>
@@ -164,17 +174,17 @@
                     <h5 class="card-header">Em breve...</h5>
                     <div class="card-body">
                         Querido cliente, nossa maior motivação é você, logo mais estará disponível nosso
-                        site para pedidos online, garantindo agilidade e eficiência.
-                        <br>Enquanto isso faça suas encomendas (44)99826-4674
+                        site completo, garantindo agilidade e eficiência.
+                        <br>Enquanto isso faça seu pedido através do celular (44)99986-1218
                     </div>
                 </div>
 
                 <div class="card my-4">
                     <h5 class="card-header">Redes Sociais</h5>
                     <div class="card-body">
-                        <a href="https://www.instagram.com/Karen.Candys/" target="blank">Acesse nosso Instagram</a><br>
-                        <a href="https://www.facebook.com/karencandys" target="blank">Página do Facebook</a><br>
-                        <a href="https://api.whatsapp.com/send?phone=5544998264674&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20fazer%20uma%20encomenda!"
+                        <a href="https://www.instagram.com/infomania.nl/" target="blank">Acesse nosso Instagram</a><br>
+                        <a href="https://www.facebook.com/InfomaniaWeb/" target="blank">Página do Facebook</a><br>
+                        <a href="https://api.whatsapp.com/send?phone=5544999861218&text=Ol%C3%A1%2C%20tenho%20interesse%20em%20um%20dos%20serviços!"
                             target="blank">
                             Link do WhatsApp</a>
                     </div>

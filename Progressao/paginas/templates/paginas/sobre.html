@@ -11,25 +11,28 @@
 </h1>
 <div class="card mb-4">
     <div class="card-body">
-        <h2 class="card-title">Sistema para Gerenciamento de Docerias</h2>
-        <p class="card-text">O segmento de doceria tem clientes garantidos durante todo o ano, mas tem grande aumento na demanda 
-            em períodos festivos como dia das mães, páscoa, dia das crianças, natal, entre outros. Contudo, a concorrência é grande, 
-            já que compete com docerias e ainda com padarias e supermercados. Dessa forma, esse tipo de negócio precisa de um software 
-            para facilitar sua gestão e propiciar uma melhor experiência no controle da sua empresa.<br>
-            Atualmente a empresa atende vários clientes de formas simultâneas, sendo assim é necessário a utilização de um sistema de 
-            informação capaz de agilizar as encomendas e fornecer informações precisas. As encomendas são realizadas via WhatsApp, 
-            Messenger e Instagram o que acaba gerando certo descontrole, também ocorre o esquecimento de encomendas, pois tudo fica 
-            anotado manualmente em cadernos. <br>
-            A proposta de desenvolvimento é de um sistema web que seja capaz de gerenciar toda a parte
-            de movimentações de uma doceria, atribuindo as respectivas permissões de acordo com os funcionários, controlar
-            os pedidos, cadastros e visualizar relatórios gerenciais para fins de verificar informações.<br>
-            Com o sistema implementado as encomendas ocorrerão apenas pelo site, tendo o banco de dados sempre controlado para que não 
-            ocorra nenhum caso de atraso, falta de produtos ou esquecimentos.
-        </p>
-    </div>
-    <div class="card-footer text-muted">
-        Postado em 11 de Junho de 2020 por
-        <a href="#">Karen Violim</a>
+        <img class="card-img-top" src="{% static 'img/diagrama de classes.jpeg'%}" alt="Card image cap">
+        <div class="card-body">
+            <h2 class="card-title">Infomania Serviços</h2>
+            <p class="card-text">O Sistema de Ordem de Serviço foi criado para proporcionar maior agilidade e 
+                segurança para o dia a dia da empresa, atualmente o sistema que existe não consegue atender bem
+                aos funcionários, não permite geração de relatórios e ocorre muitos erros. <br><br>
+                No diagrama de classes podemos apresentar as classes a serem implementadas no sistema, podemos ver
+                o cadastro de cliente, funcionários, serviço, grupo, marca, equipamento e a ordem de serviço. <br><br>
+                Um cliente pode ser pessoa física ou jurídica e pode estar presente em nenhuma ou muitas ordens de serviço. <br><br>
+                Um funcionário pode estar presente em nenhuma ou muitas ordens de serviço. <br><br>
+                Entre serviço e ordem de serviço é necessário a criação de uma tabela associativa por apresentar relação de
+                muitos para muitos, a mesma coisa ocorre com equipamento. <br><br>
+                Um grupo pode estar em um ou muitos equipamentos e uma marca também pode estar em um ou muitos equipamentos. <br><br>
+                Uma ordem de serviço deve obrigatóriamente conter 1 funcionário, 1 cliente, 1 ou vários serviços e 1 ou vários 
+                equipamentos. <br><br>
+            </p>
+            <a href="#" class="btn btn-primary">Ler mais &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+            Postado em 11 de Junho de 2020 por
+            <a href="#">Karen Violim</a>
+        </div>
     </div>
 </div>
 {% endblock %}

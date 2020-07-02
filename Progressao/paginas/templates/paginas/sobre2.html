@@ -1,0 +1,52 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>Sobre</title>
+{% endblock %}
+
+{% block menu %}
+<h1 class="my-4">Diagrama de Caso de Uso
+</h1>
+<div class="card mb-4">
+    <div class="card-body">
+        <img class="card-img-top" src="{% static 'img/caso de uso.jpeg'%}" alt="Card image cap">
+        <div class="card-body">
+            <h2 class="card-title">Infomania Serviços</h2>
+            <p class="card-text">Cadastrar Grupo -> Ator: funcionário. O ator irá selecionar no menu do sistema 
+                o cadastro de grupo, após isso irá informar a descrição, Ao concluir o ator confirma os dados e
+                finaliza a operação. <br><br>
+                Cadastrar Marca -> Ator: funcionário. O ator irá selecionar o menu do sistema o cadastro
+                de marca, após isso irá informar a descrição, Ao concluir o ator confirma os dados e
+                finaliza a operação. <br><br>
+                Cadastrar Equipamento -> Ator: funcionário. O ator irá selecionar o menu do sistema o cadastro
+                de equipamento, após isso irá informar os dados do funcionário tais como, descrição,
+                marca, grupo, Ao concluir o ator confirma os dados e finaliza a operação. <br><br>
+                Cadastrar Ordem de Serviço -> Atores: funcionário, atendente. O ator irá selecionar o menu do sistema 
+                o cadastro de ordem de serviço, após isso, irá informar o cliente a quem pertence essa os, o defeito
+                relatado e o funcionário que sera responsável por essa os, Ao concluir o ator confirma os dados e finaliza 
+                a operação, após feito isso a os entra para o estado de aberta até que algum técnico efetue algum registro, 
+                após se ter algum registro salvo dentro da os o estado muda para “Em Atendimento”. <br><br>
+                Cadastrar Cliente -> Atores: funcionário, atendente. O ator irá selecionar o menu do sistema o cadastro
+                de cliente, após isso irá informar os dados do funcionário tais como, nome, CPF,
+                endereço, telefone, Ao concluir o ator confirma os dados e finaliza a operação. <br><br>
+                Cadastrar Funcionário -> Ator: funcionário.  O ator irá selecionar o menu do sistema o cadastro
+                de funcionário, após isso irá informar os dados do funcionário tais como, nome, CPF,
+                endereço, telefone, Ao concluir o ator confirma os dados e finaliza a operação. <BR><br>
+                Finalizar Ordem de Serviço -> Ator: funcionário.  Após a ordem de serviço ser concluída o ator ira
+                clicar no botão de finalizar que irá finalizar a ordem de serviço, e encaminhar um e-mail
+                para o respectivo cliente, após feito isso a os entra para o estado de “Finalizada” <br><br>
+                Emissão de Relatório -> Ator: funcionário, cliente. Após a ordem de serviço ser aberta a qualquer
+                momento o ator poderá gerar um relatório de tudo o que foi feito até o momento dessa
+                os. 
+            </p>
+            <a href="#" class="btn btn-primary">Ler mais &rarr;</a>
+        </div>
+        <div class="card-footer text-muted">
+            Postado em 11 de Junho de 2020 por
+            <a href="#">Karen Violim</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
