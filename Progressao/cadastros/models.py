@@ -21,8 +21,8 @@ class Equipamento(models.Model):
     fornecedor = models.CharField(max_length=100)
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
     grupo = models.ForeignKey(Grupo, on_delete=models.PROTECT)
-    valor_compra = models.DecimalField(decimal_places=2, max_digits=4, verbose_name="Valor de Custo")
-    valor_venda = models.DecimalField(decimal_places=2, max_digits=4, verbose_name="Valor de Venda")
+    valor_compra = models.DecimalField(decimal_places=2, max_digits=8, verbose_name="Valor de Custo")
+    valor_venda = models.DecimalField(decimal_places=2, max_digits=8, verbose_name="Valor de Venda")
 
     def __str__(self):
         return"{} ({})".format(self.nome_eq, self.marca)

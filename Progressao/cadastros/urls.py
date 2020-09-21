@@ -4,6 +4,8 @@ from django.urls import path
 from .views import ClienteCreate, EquipamentoCreate, FuncionarioCreate, GrupoCreate, MarcaCreate, ServicoCreate
 
 from .views import ClienteUpdate, EquipamentoUpdate, FuncionarioUpdate, GrupoUpdate, MarcaUpdate, ServicoUpdate
+
+from .views import ClienteDelete, EquipamentoDelete, FuncionarioDelete, GrupoDelete, MarcaDelete, ServicoDelete
 # Tem que ser urlpatterns porque é padrão do Django
 urlpatterns = [
     # Todo path tem endereço, sua_view.as_view() e nome
@@ -20,4 +22,11 @@ urlpatterns = [
     path('editar/grupo/<int:pk>/', GrupoUpdate.as_view(), name='editar-grupo'),
     path('editar/marca/<int:pk>/', MarcaUpdate.as_view(), name='editar-marca'),
     path('editar/servico/<int:pk>/', ServicoUpdate.as_view(), name='editar-servico'),
+
+    path('excluir/cliente/<int:pk>/', ClienteDelete.as_view(), name='excluir-cliente'),
+    path('excluir/equipamento/<int:pk>/', EquipamentoDelete.as_view(), name='excluir-equipamento'),
+    path('excluir/funcionario/<int:pk>/', FuncionarioDelete.as_view(), name='excluir-funcionario'),
+    path('excluir/grupo/<int:pk>/', GrupoDelete.as_view(), name='excluir-grupo'),
+    path('excluir/marca/<int:pk>/', MarcaDelete.as_view(), name='excluir-marca'),
+    path('excluir/servico/<int:pk>/', ServicoDelete.as_view(), name='excluir-servico'),
 ]

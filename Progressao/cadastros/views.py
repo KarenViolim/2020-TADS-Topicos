@@ -1,4 +1,4 @@
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Cliente, Equipamento, Funcionario, Grupo, Marca, Servico
 
@@ -75,4 +75,35 @@ class FuncionarioUpdate(UpdateView):
     model = Funcionario
     fields = ['nome_funcionario','cep','endereco','numero','bairro','cidade','celular','email','cargo']
     template_name = 'cadastros/form.html'
+    success_url = reverse_lazy('index')
+
+########## DELETE ########## 
+class MarcaDelete(DeleteView):
+    model = Marca
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('index')
+
+class GrupoDelete(DeleteView):
+    model = Grupo
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('index')
+
+class EquipamentoDelete(DeleteView):
+    model = Equipamento
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('index')
+
+class ServicoDelete(DeleteView):
+    model = Servico
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('index')
+
+class ClienteDelete(DeleteView):
+    model = Cliente
+    template_name = 'cadastros/form-excluir.html'
+    success_url = reverse_lazy('index')
+
+class FuncionarioDelete(DeleteView):
+    model = Funcionario
+    template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('index')
