@@ -1,0 +1,34 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block menu %}
+<h3>Lista de Marcas Cadastradas</h3>
+<hr>
+<div class="table responsive">
+    <table class="table table striped">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for marca in object_list %} 
+        <tr>
+            <td>{{ marca.pk }}</td>
+            <td>{{ marca.nome }}</td>
+            <td>{{ marca.descricao }}</td>
+            <td>
+                <a href="{% url 'editar-marca' marca.pk %}" class="btn btn-warning btn-sm" title="Excluir">Editar</a>
+                <a href="{% url 'excluir-marca' marca.pk%}" class="btn btn-danger btn-sm" title="Editar">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum campo registrado.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

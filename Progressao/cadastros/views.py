@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.list import ListView
 
 from .models import Cliente, Equipamento, Funcionario, Grupo, Marca, Servico
 
@@ -8,7 +9,7 @@ class MarcaCreate(CreateView):
     model = Marca
     fields = ['nome','descricao']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar-marca')
 
 class GrupoCreate(CreateView):
     model = Grupo
@@ -45,7 +46,7 @@ class MarcaUpdate(UpdateView):
     model = Marca
     fields = ['nome','descricao']
     template_name = 'cadastros/form.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar-marca')
 
 class GrupoUpdate(UpdateView):
     model = Grupo
@@ -81,7 +82,7 @@ class FuncionarioUpdate(UpdateView):
 class MarcaDelete(DeleteView):
     model = Marca
     template_name = 'cadastros/form-excluir.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('listar-marca')
 
 class GrupoDelete(DeleteView):
     model = Grupo
@@ -107,3 +108,28 @@ class FuncionarioDelete(DeleteView):
     model = Funcionario
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('index')
+
+########## LISTA ########## 
+class MarcaList(ListView):
+    model = Marca
+    template_name = 'cadastros/listas/marca.html'
+
+class GrupoList(ListView):
+    model = Grupo
+    template_name = 'cadastros/listas/grupo.html'
+
+class EquipamentoList(ListView):
+    model = Equipamento
+    template_name = 'cadastros/listas/equipamento.html'
+
+class ServicoList(ListView):
+    model = Servico
+    template_name = 'cadastros/listas/servico.html'
+
+class ClienteList(ListView):
+    model = Cliente
+    template_name = 'cadastros/listas/cliente.html'
+
+class FuncionarioList(ListView):
+    model = Funcionario
+    template_name = 'cadastros/listas/funcionario.html'
