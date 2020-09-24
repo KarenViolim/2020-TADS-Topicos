@@ -4,6 +4,8 @@
 
 {% block menu %}
 <h3>Lista de Marcas Cadastradas</h3>
+<a href="{% url 'cadastrar-marca' %}" class="btn btn-primary btn-sm">Adicionar Marca</a>
+
 <hr>
 <div class="table responsive">
     <table class="table table striped">
@@ -31,4 +33,6 @@
         {% endfor %}
     </table>
 </div>
+{% endblock %}
+{% block lateral %}
 {% endblock %}

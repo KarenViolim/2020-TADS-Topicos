@@ -1,0 +1,43 @@
+{% extends 'paginas/modelo.html' %}
+
+{% load static %}
+
+{% block menu %}
+<h3>Lista de Equipamentos Cadastrados</h3>
+<a href="{% url 'cadastrar-equipamento' %}" class="btn btn-primary btn-sm">Adicionar Equipamento</a>
+<hr>
+<div class="table responsive">
+    <table class="table table striped">
+        <tr>
+            <th>Nome</th>
+            <th>Fornecedor</th>
+            <th>Marca</th>
+            <th>Grupo</th>
+            <th>Valor de Custo</th>
+            <th>Valor de Venda</th>
+            <th>Opções</th>
+        </tr>
+
+        {% for equipamento in object_list %} 
+        <tr>
+            <td>{{ equipamento.nome_eq }}</td>
+            <td>{{ equipamento.fornecedor }}</td>
+            <td>{{ equipamento.marca.nome }}</td>
+            <td>{{ equipamento.grupo.descricao }}</td>
+            <td>{{ equipamento.valor_compra }}</td>
+            <td>{{ equipamento.valor_venda }}</td>
+            <td>
+                <a href="{% url 'editar-equipamento' equipamento.pk %}" class="btn btn-warning btn-sm" title="Excluir">Editar</a>
+                <a href="{% url 'excluir-equipamento' equipamento.pk%}" class="btn btn-danger btn-sm" title="Editar">Excluir</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum campo registrado.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+{% block lateral %}
+{% endblock %}
