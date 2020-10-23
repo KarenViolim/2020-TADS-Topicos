@@ -37,14 +37,14 @@ class Servico(models.Model):
 
 class Cliente(models.Model):
     nome_cliente = models.CharField(max_length=120, verbose_name="Nome Cliente")
-    documento = models.CharField(max_length=25, verbose_name="CPF ou CNPJ")
+    documento = models.CharField(max_length=25, verbose_name="CPF ou CNPJ", unique=True)
     cep = models.CharField(max_length=20)
     endereco = models.CharField(max_length=120)
     numero = models.DecimalField(decimal_places=2, max_digits=4)
     bairro = models.CharField(max_length=50)
     cidade = models.CharField(max_length=50)
     celular = models.CharField(max_length=20)
-    email = models.CharField(max_length=200)
+    email = models.CharField(max_length=200, blank=True, null=True)
     
     def __str__(self):
         return"{} ({})".format(self.nome_cliente, self.documento)    

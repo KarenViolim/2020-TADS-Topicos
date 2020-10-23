@@ -4,132 +4,159 @@ from django.views.generic.list import ListView
 from .models import Cliente, Equipamento, Funcionario, Grupo, Marca, Servico
 
 from django.urls import reverse_lazy
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
-class MarcaCreate(CreateView):
+class MarcaCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Marca
     fields = ['nome','descricao']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-marca')
 
-class GrupoCreate(CreateView):
+class GrupoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Grupo
     fields = ['descricao']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-grupo')
 
-class EquipamentoCreate(CreateView):
+class EquipamentoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Equipamento
     fields = ['nome_eq','fornecedor','marca','grupo','valor_compra','valor_venda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-equipamento')
 
-class ServicoCreate(CreateView):
+class ServicoCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Servico
     fields = ['descricao','tipo_servico','valor']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-servico')
 
-class ClienteCreate(CreateView):
+class ClienteCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Cliente
     fields = ['nome_cliente','documento','cep','endereco','numero','bairro','cidade','celular','email']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-cliente')
 
-class FuncionarioCreate(CreateView):
+class FuncionarioCreate(LoginRequiredMixin, CreateView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     fields = ['nome_funcionario','cep','endereco','numero','bairro','cidade','celular','email','cargo']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-funcionario')
 
 ########## UPDATES ########## 
-class MarcaUpdate(UpdateView):
+class MarcaUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Marca
     fields = ['nome','descricao']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-marca')
 
-class GrupoUpdate(UpdateView):
+class GrupoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Grupo
     fields = ['descricao']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-grupo')
 
-class EquipamentoUpdate(UpdateView):
+class EquipamentoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Equipamento
     fields = ['nome_eq','fornecedor','marca','grupo','valor_compra','valor_venda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-equipamento')
 
-class ServicoUpdate(UpdateView):
+class ServicoUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Servico
     fields = ['descricao','tipo_servico','valor']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-servico')
 
-class ClienteUpdate(UpdateView):
+class ClienteUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Cliente
     fields = ['nome_cliente','documento','cep','endereco','numero','bairro','cidade','celular','email']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-cliente')
 
-class FuncionarioUpdate(UpdateView):
+class FuncionarioUpdate(LoginRequiredMixin, UpdateView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     fields = ['nome_funcionario','cep','endereco','numero','bairro','cidade','celular','email','cargo']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-funcionario')
 
 ########## DELETE ########## 
-class MarcaDelete(DeleteView):
+class MarcaDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Marca
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-marca')
 
-class GrupoDelete(DeleteView):
+class GrupoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Grupo
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-grupo')
 
-class EquipamentoDelete(DeleteView):
+class EquipamentoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Equipamento
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-equipamento')
 
-class ServicoDelete(DeleteView):
+class ServicoDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Servico
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-servico')
 
-class ClienteDelete(DeleteView):
+class ClienteDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Cliente
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-cliente')
 
-class FuncionarioDelete(DeleteView):
+class FuncionarioDelete(LoginRequiredMixin, DeleteView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-funcionario')
 
 ########## LISTA ########## 
-class MarcaList(ListView):
+class MarcaList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Marca
     template_name = 'cadastros/listas/marca.html'
 
-class GrupoList(ListView):
+class GrupoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Grupo
     template_name = 'cadastros/listas/grupo.html'
 
-class EquipamentoList(ListView):
+class EquipamentoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Equipamento
     template_name = 'cadastros/listas/equipamento.html'
 
-class ServicoList(ListView):
+class ServicoList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Servico
     template_name = 'cadastros/listas/servico.html'
 
-class ClienteList(ListView):
+class ClienteList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Cliente
     template_name = 'cadastros/listas/cliente.html'
 
-class FuncionarioList(ListView):
+class FuncionarioList(LoginRequiredMixin, ListView):
+    login_url = reverse_lazy('login')
     model = Funcionario
     template_name = 'cadastros/listas/funcionario.html'

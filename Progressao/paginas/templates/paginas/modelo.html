@@ -31,7 +31,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'index' %}">Página Inicial
                             <span class="sr-only">(current)</span>
                         </a>
@@ -42,8 +42,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'sobre2' %}">Diagrama de Caso de Uso</a>
                     </li>
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" role="button" data-toggle="dropdown" aria-haspopup="true" 
+                        aria-expanded="false">
                           Cadastros
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
@@ -55,6 +57,8 @@
                           <a class="dropdown-item" href="{% url 'cadastrar-servico' %}">Serviço</a>
                         </div>
                     </li>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Listar Cadastros
@@ -68,9 +72,22 @@
                             <a class="dropdown-item" href="{% url 'listar-servico' %}">Serviço</a>
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ajuda</a>
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" 
+                        aria-expanded="false">{{request.user}}</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+                            <a class="dropdown-item" href="{% url 'listar-cliente' %}">Meus Dados</a>
+                            <a class="dropdown-item" href="{% url 'listar-equipamento' %}">Alterar Senha</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+                        </div>
                     </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
         </div>
     </nav>
@@ -240,7 +257,6 @@
     <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/jquery.min.js'%}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
 
 </body>
 
