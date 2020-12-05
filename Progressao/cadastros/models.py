@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Marca(models.Model):
@@ -23,6 +24,8 @@ class Equipamento(models.Model):
     grupo = models.ForeignKey(Grupo, on_delete=models.PROTECT)
     valor_compra = models.DecimalField(decimal_places=2, max_digits=8, verbose_name="Valor de Custo")
     valor_venda = models.DecimalField(decimal_places=2, max_digits=8, verbose_name="Valor de Venda")
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
+
 
     def __str__(self):
         return"{} ({})".format(self.nome_eq, self.marca)
@@ -31,6 +34,7 @@ class Servico(models.Model):
     descricao = models.CharField(max_length=100, verbose_name="Descrição")
     tipo_servico = models.CharField(max_length=50, verbose_name="Tipo do Serviço")
     valor = models.DecimalField(decimal_places=2, max_digits=6)
+    usuario = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self):
         return"{}".format(self.descricao)

@@ -15,6 +15,7 @@
             <th>Grupo</th>
             <th>Valor de Custo</th>
             <th>Valor de Venda</th>
+            <th>Usuário</th>
             <th>Opções</th>
         </tr>
 
@@ -26,6 +27,7 @@
             <td>{{ equipamento.grupo.descricao }}</td>
             <td>{{ equipamento.valor_compra }}</td>
             <td>{{ equipamento.valor_venda }}</td>
+            <td>{{ equipamento.usuario }}</td>
             <td>
                 <a href="{% url 'editar-equipamento' equipamento.pk %}" class="btn btn-warning btn-sm" title="Excluir">Editar</a>
                 <a href="{% url 'excluir-equipamento' equipamento.pk%}" class="btn btn-danger btn-sm" title="Editar">Excluir</a>
