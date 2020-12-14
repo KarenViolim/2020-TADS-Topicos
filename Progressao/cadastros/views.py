@@ -8,6 +8,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from braces.views import GroupRequiredMixin
 
+from django.shortcuts import get_object_or_404
+
 # Create your views here.
 class MarcaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -17,6 +19,15 @@ class MarcaCreate(GroupRequiredMixin, LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-marca')
 
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Cadastro de Marcas"
+        context['botao'] = "Cadastrar"
+        
+        return context
+        
+
 class GrupoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Grupo
@@ -24,12 +35,28 @@ class GrupoCreate(LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-grupo')
 
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Cadastro de Grupos"
+        context['botao'] = "Cadastrar"
+        
+        return context
+
 class EquipamentoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Equipamento
     fields = ['nome_eq','fornecedor','marca','grupo','valor_compra','valor_venda']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-equipamento')
+
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Cadastro de Equipamentos"
+        context['botao'] = "Cadastrar"
+        
+        return context
 
     def form_valid(self, form):
 
@@ -40,6 +67,7 @@ class EquipamentoCreate(LoginRequiredMixin, CreateView):
 
         #Depois do super o objeto está criado.
         return url
+        
 
 class ServicoCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
@@ -47,6 +75,14 @@ class ServicoCreate(LoginRequiredMixin, CreateView):
     fields = ['descricao','tipo_servico','valor']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-servico')
+
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Cadastro de Serviços"
+        context['botao'] = "Cadastrar"
+        
+        return context
 
     def form_valid(self, form):
 
@@ -65,12 +101,28 @@ class ClienteCreate(LoginRequiredMixin, CreateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-cliente')
 
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Cadastro de Clientes"
+        context['botao'] = "Cadastrar"
+        
+        return context
+
 class FuncionarioCreate(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('login')
     model = Funcionario
     fields = ['nome_funcionario','cep','endereco','numero','bairro','cidade','celular','email','cargo']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-funcionario')
+
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Cadastro de Fucionários"
+        context['botao'] = "Cadastrar"
+        
+        return context
 
 ########## UPDATES ########## 
 class MarcaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
@@ -81,12 +133,30 @@ class MarcaUpdate(GroupRequiredMixin, LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-marca')
 
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Edição de Marca"
+        context['botao'] = "Salvar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        
+        return context
+
 class GrupoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Grupo
     fields = ['descricao']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-grupo')
+
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Edição de Grupo"
+        context['botao'] = "Salvar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        
+        return context
 
 class EquipamentoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -95,12 +165,38 @@ class EquipamentoUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-equipamento')
 
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Edição de Equipamento"
+        context['botao'] = "Salvar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        
+        return context
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Equipamento, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
 class ServicoUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Servico
     fields = ['descricao','tipo_servico','valor']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-servico')
+
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Edição de Serviço"
+        context['botao'] = "Salvar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        
+        return context
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Servico, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
 
 class ClienteUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
@@ -109,12 +205,30 @@ class ClienteUpdate(LoginRequiredMixin, UpdateView):
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-cliente')
 
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Edição de Cliente"
+        context['botao'] = "Salvar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        
+        return context
+
 class FuncionarioUpdate(LoginRequiredMixin, UpdateView):
     login_url = reverse_lazy('login')
     model = Funcionario
     fields = ['nome_funcionario','cep','endereco','numero','bairro','cidade','celular','email','cargo']
     template_name = 'cadastros/form.html'
     success_url = reverse_lazy('listar-funcionario')
+
+    def get_context_data(self, *args, **kwargs):
+        context= super().get_context_data(*args, **kwargs)
+        
+        context['titulo'] = "Edição de Funcionário"
+        context['botao'] = "Salvar"
+        context['icone'] = '<i class="fa fa-check" aria-hidden="true"></i>'
+        
+        return context
 
 ########## DELETE ########## 
 class MarcaDelete(GroupRequiredMixin, LoginRequiredMixin, DeleteView):
@@ -136,11 +250,19 @@ class EquipamentoDelete(LoginRequiredMixin, DeleteView):
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-equipamento')
 
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Equipamento, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
+
 class ServicoDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
     model = Servico
     template_name = 'cadastros/form-excluir.html'
     success_url = reverse_lazy('listar-servico')
+
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Servico, pk=self.kwargs['pk'], usuario=self.request.user)
+        return self.object
 
 class ClienteDelete(LoginRequiredMixin, DeleteView):
     login_url = reverse_lazy('login')
