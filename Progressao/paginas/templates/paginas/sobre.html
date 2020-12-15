@@ -1,37 +1,27 @@
-{% extends 'paginas/modelo.html' %}
-
-{% load static %}
-
-{% block titulo %}
+{% extends 'paginas/modelo.html' %} {% load static %} {% block titulo %}
 <title>Sobre</title>
-{% endblock %}
-
-{% block menu %}
-<h1 class="my-4">Descrição e Objetivos do Software
-</h1>
-<div class="card mb-4">
-    <div class="card-body">
-        <img class="card-img-top" src="{% static 'img/diagrama de classes.jpeg'%}" alt="Card image cap">
+{% endblock %} {% block menu %}
+<div class="col-md-8">
+    <h1 class="my-4">Descrição e Objetivos do Software
+    </h1>
+    <div class="card mb-4">
         <div class="card-body">
-            <h2 class="card-title">Infomania Serviços</h2>
-            <p class="card-text">O Sistema de Ordem de Serviço foi criado para proporcionar maior agilidade e 
-                segurança para o dia a dia da empresa, atualmente o sistema que existe não consegue atender bem
-                aos funcionários, não permite geração de relatórios e ocorre muitos erros. <br><br>
-                No diagrama de classes podemos apresentar as classes a serem implementadas no sistema, podemos ver
-                o cadastro de cliente, funcionários, serviço, grupo, marca, equipamento e a ordem de serviço. <br><br>
-                Um cliente pode ser pessoa física ou jurídica e pode estar presente em nenhuma ou muitas ordens de serviço. <br><br>
-                Um funcionário pode estar presente em nenhuma ou muitas ordens de serviço. <br><br>
-                Entre serviço e ordem de serviço é necessário a criação de uma tabela associativa por apresentar relação de
-                muitos para muitos, a mesma coisa ocorre com equipamento. <br><br>
-                Um grupo pode estar em um ou muitos equipamentos e uma marca também pode estar em um ou muitos equipamentos. <br><br>
-                Uma ordem de serviço deve obrigatóriamente conter 1 funcionário, 1 cliente, 1 ou vários serviços e 1 ou vários 
-                equipamentos. <br><br>
-            </p>
-            <a href="#" class="btn btn-primary">Ler mais &rarr;</a>
-        </div>
-        <div class="card-footer text-muted">
-            Postado em 11 de Junho de 2020 por
-            <a href="#">Karen Violim</a>
+            <img class="card-img-top" src="{% static 'img/diagrama de classes.jpeg'%}" alt="Card image cap">
+            <div class="card-body">
+                <h2 class="card-title">Infomania Serviços</h2>
+                <p class="card-text">O Sistema de Ordem de Serviço foi criado para proporcionar maior agilidade e segurança para o dia a dia da empresa, atualmente o sistema que existe não consegue atender bem aos funcionários, não permite geração de relatórios e ocorre muitos
+                    erros. <br><br> No diagrama de classes podemos apresentar as classes a serem implementadas no sistema, podemos ver o cadastro de cliente, funcionários, serviço, grupo, marca, equipamento e a ordem de serviço. <br><br> Um cliente pode
+                    ser pessoa física ou jurídica e pode estar presente em nenhuma ou muitas ordens de serviço. <br><br> Um funcionário pode estar presente em nenhuma ou muitas ordens de serviço. <br><br> Entre serviço e ordem de serviço é necessário
+                    a criação de uma tabela associativa por apresentar relação de muitos para muitos, a mesma coisa ocorre com equipamento. <br><br> Um grupo pode estar em um ou muitos equipamentos e uma marca também pode estar em um ou muitos equipamentos.
+                    <br><br> Uma ordem de serviço deve obrigatóriamente conter 1 funcionário, 1 cliente, 1 ou vários serviços e 1 ou vários equipamentos. <br><br>
+                </p>
+                <a href="#" class="btn btn-primary">Ler mais &rarr;</a>
+            </div>
+            <div class="card-footer text-muted">
+                Postado em 11 de Junho de 2020 por
+                <a href="#">Karen Violim</a>
+                <br><br>
+            </div>
         </div>
     </div>
 </div>

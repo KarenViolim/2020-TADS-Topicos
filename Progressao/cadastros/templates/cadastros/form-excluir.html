@@ -1,28 +1,23 @@
-{% extends 'paginas/modelo.html' %}
+{% extends 'paginas/modelo.html' %} {% load static %} {% block menu %}
+<div class="col-md-12">
 
-{% load static %}
-
-{% block menu %}
-
-<h3>Excluir Registros</h3>
-<p class="lead">
-    Confirme para excluir o registro definitivamente.
-</p>
-
-<hr>
-
-<form action="" method="post">
-
-    <p>
-        Deseja excluir o registro: <b>{{ object }}</b> ?
+    <h3>Excluir Registros</h3>
+    <p class="lead">
+        Confirme para excluir o registro definitivamente.
     </p>
 
-    {% csrf_token %}
+    <hr>
 
-    {{ form.as_p }}
+    <form action="" method="post">
 
-    <button type="submit" class="btn btn-danger">Excluir</button>
+        <p>
+            Deseja excluir o registro: <b>{{ object }}</b> ?
+        </p>
 
-</form>
+        {% csrf_token %} {{ form.as_p }}
 
-{% endblock %}
+        <button type="submit" class="btn btn-danger">Excluir</button>
+
+    </form>
+</div>
+{% endblock %} {% block lateral %} {% endblock %}

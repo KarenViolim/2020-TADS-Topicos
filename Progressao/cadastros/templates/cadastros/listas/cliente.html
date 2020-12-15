@@ -1,57 +1,54 @@
-{% extends 'paginas/modelo.html' %}
-
-{% load static %}
-
-{% block menu %}
-<h3>Lista de Clientes Cadastrados</h3>
-<a href="{% url 'cadastrar-cliente' %}" class="btn btn-primary btn-sm">Adicionar Cliente</a>
-<hr>
-<div class="table responsive">
-    <table class="table table striped">
-        <tr>
-            <th>Nome</th>
-            <th>Documento</th>
-            <th>Endereço</th>
-            <th>Número</th>
-            <th>Bairro</th>
-            <th>Cidade</th>
-            <th>Celular</th>
-            <th>Opções</th>
-        </tr>
-
-        {% for cliente in object_list %} 
-        <tr>
-            <td>{{ cliente.nome_cliente }}</td>
-            <td>{{ cliente.documento }}</td>
-            <td>{{ cliente.endereco }}</td>
-            <td>{{ cliente.numero }}</td>
-            <td>{{ cliente.bairro }}</td>
-            <td>{{ cliente.cidade }}</td>
-            <td>{{ cliente.celular }}</td>
-            <td>
-                <a href="{% url 'editar-cliente' cliente.pk %}" class="btn btn-warning btn-sm" title="Excluir">Editar</a>
-                <a href="{% url 'excluir-cliente' cliente.pk%}" class="btn btn-danger btn-sm" title="Editar">Excluir</a>
-            </td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="3">Nenhum campo registrado.</td>
-        </tr>
-        {% endfor %}
-    </table>
+{% extends 'paginas/modelo.html' %} {% load static %} {% block menu %}
+<div class="col-md-12">
+    <h3>Lista de Clientes Cadastrados</h3>
+    <a href="{% url 'cadastrar-cliente' %}" class="btn btn-primary btn-sm">Adicionar Cliente</a>
+    <hr>
+    <div class="table responsive">
+        <table class="table table striped" id="tabela_cliente">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Documento</th>
+                    <th>Endereço</th>
+                    <th>Número</th>
+                    <th>Bairro</th>
+                    <th>Cidade</th>
+                    <th>Celular</th>
+                    <th>Opções</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in object_list %}
+                <tr>
+                    <td>{{ cliente.nome_cliente }}</td>
+                    <td>{{ cliente.documento }}</td>
+                    <td>{{ cliente.endereco }}</td>
+                    <td>{{ cliente.numero }}</td>
+                    <td>{{ cliente.bairro }}</td>
+                    <td>{{ cliente.cidade }}</td>
+                    <td>{{ cliente.celular }}</td>
+                    <td>
+                        <a href="{% url 'editar-cliente' cliente.pk %}" class="btn btn-warning btn-sm" title="Excluir">Editar</a>
+                        <a href="{% url 'excluir-cliente' cliente.pk%}" class="btn btn-danger btn-sm" title="Editar">Excluir</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">Nenhum campo registrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
-{% endblock %}
-{% block lateral %}
-{% endblock %}
+{% endblock %} {% block lateral %} {% endblock %} {% block scripts %}
 
-{% block scripts %}
-<!-- <script>
-    
-    $(document).ready(function () {
-        
-        alert("Importação ok!");
-     
+<script>
+    $(document).ready(function() {
+        $("#tabela_cliente").DataTable();
+
+
     });
+</script>
 
-</script> -->
 {% endblock %}
